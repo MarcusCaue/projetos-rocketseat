@@ -1,0 +1,54 @@
+/* Escondendo o Checkbox padrão */
+.switch {
+  position: absolute;
+  margin-left: -9999px;
+  visibility: hidden;
+}
+/* Permite que o img seja clicável */
+.switch + img {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+}
+
+.switch--shadow + img {
+  padding: 2px;
+  width: 80px;
+  height: 35px;
+  /* background-color: #dddddd; */
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 60px;
+  color: white;
+}
+
+.switch--shadow + img:before,
+.switch--shadow + img:after {
+  display: block;
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  bottom: 100px;
+  content: '';
+}
+.switch--shadow + img:before {
+  right: 100px;
+  background-color: #f1f1f1;
+  border-radius: 60px;
+  transition: all 0.4s;
+}
+.switch--shadow + img:after {
+  width: 62px;
+  background-color: #fff;
+  border-radius: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s;
+}
+
+.switch--shadow:checked + img:before {
+  background-color: transparent;
+}
+.switch--shadow:checked + img:after {
+  transform: translateX(100px);
+}
