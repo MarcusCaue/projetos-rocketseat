@@ -4,11 +4,11 @@ function alterarTema(estilos) {
   const body = document.querySelector("body")
   const imgPerfil = document.querySelector("#perfil")
 
-  
   pageTheme.textContent = estilos.pageTheme
   body.style.color = estilos.bodyColor
   body.style.backgroundImage = estilos.bgImage
   imgPerfil.style.border = estilos.perfilBorder
+  imgPerfil.src = estilos.avatar
 
   stylesAnchor.color = estilos.anchorColor
   stylesLinks.border = estilos.linksBorder
@@ -19,13 +19,13 @@ function alterarTema(estilos) {
 // Seleciona todas as regras de CSS do arquivo "style.css"
 const rulesCss = document.styleSheets[0].cssRules
 // Seleciona os estilos dos links quando estão em hover 
-const stylesLinksHover = rulesCss.item(12).style
+const stylesLinksHover = rulesCss.item(11).style
 // Seleciona os estilos dos ícones quando estão em hover 
-const stylesIconsHover = rulesCss.item(7).style
+const stylesIconsHover = rulesCss.item(6).style
 // Seleciona os estilos das tags a
-const stylesAnchor = rulesCss.item(2).style
+const stylesAnchor = rulesCss.item(1).style
 // Seleciona os estilos dos links
-const stylesLinks = rulesCss.item(11).style
+const stylesLinks = rulesCss.item(10).style
 
 // Botão que permitirá a troca de temas da página
 const switchButton = document.querySelector("#switch-button")
@@ -33,6 +33,7 @@ const switchButton = document.querySelector("#switch-button")
 // Estilos do Modo Escuro
 const darkTheme = {
   pageTheme: "Claro",
+  avatar: "images/avatar.jpg",
   bodyColor: "white",
   bgImage: "url(images/bg-desktop.jpg)",
   perfilBorder: "2px solid #ffffff80",
@@ -45,6 +46,7 @@ const darkTheme = {
 const lightTheme = {
   pageTheme: "Escuro",
   bodyColor: "black",
+  avatar: "https://github.com/MarcusCaue.png",
   bgImage: "url(images/bg-desktop-light.jpg)",
   perfilBorder: "2px solid #00000080",
   anchorColor: "black",
@@ -59,51 +61,3 @@ switchButton.addEventListener("click", () => {
   // Se o botão estiver marcado, mudar para o tema claro; do contário, para o tema escuro
   if (btnChecked) { alterarTema(lightTheme)} else { alterarTema(darkTheme) }
 })
-
-  // // Modo claro
-  // if (btnChecked) {
-  //   siteMode.textContent = "Escuro"
-  //   body.style.color = "black"
-  //   perfil.style.border = "2px solid rgba(0, 0, 0, 0.5)"
-
-  //   if (window.innerWidth < 769) {
-  //     body.style.backgroundImage = "url(images/bg-mobile-light.jpg)"
-  //   } else {
-  //     body.style.backgroundImage = "url(images/bg-desktop-light.jpg)"
-  //   }
-
-  //   a.forEach((linkElement) => {
-  //     linkElement.style.color = "black"
-  //   })
-
-  //   links.forEach(link => {
-  //     link.style.border = "1px solid rgba(0, 0, 0, 0.5)"
-  //   })
-
-  //   stylesLinkHover.backgroundColor = "rgb(199 164 164 / 18%)"
-  //   stylesIconHover.backgroundColor = "rgb(58 58 58 / 23%)"
-    
-  // } 
-  // // Modo Escuro
-  // else {
-  //   siteMode.textContent = "Claro"
-  //   body.style.color = "white"
-  //   perfil.style.border = "2px solid rgba(255, 255, 255, 0.5)"
-
-  //   if (window.innerWidth < 769) {
-  //     body.style.backgroundImage = "url(images/bg-mobile.jpg)"
-  //   } else {
-  //     body.style.backgroundImage = "url(images/bg-desktop.jpg)"
-  //   }
-
-  //   a.forEach((linkElement) => { linkElement.style.color = "white" })
-
-  //   links.forEach(link => {
-  //     link.style.border = "1px solid rgba(255, 255, 255, 0.5)"
-  //   })
-
-  //   stylesLinkHover.backgroundColor = "rgba(12, 12, 12, 0.295)"
-  //   stylesIconHover.backgroundColor = "rgba(255, 255, 255, 0.123)"
-
-  // }
-
