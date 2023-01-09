@@ -25,21 +25,21 @@ header {
 }
 
 img#perfil {
-  border-radius: 100%;
   width: 112px;
   border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 100%;
 }
 
 
 .link {
   display: block;
+  margin: 15px 0px;
+  padding: 15px;
+  background-color: rgba(128, 128, 128, 0.075);
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 5px;
-  padding: 15px;
-  text-align: center;
-  margin: 15px 0px;
-  background-color: rgba(128, 128, 128, 0.075);
   text-decoration: none;
+  text-align: center;
 }
 
 .link:hover {
@@ -48,20 +48,20 @@ img#perfil {
 }
 
 .redes-sociais {
-  margin: 50px auto;
-  text-align: center;
   display: flex;
   justify-content: space-evenly;
   width: 200px;
+  margin: 50px auto;
+  text-align: center;
 }
 
 .icon {
+  display: flex;
+  padding: 15px;
   border-radius: 100%;
   text-decoration: none;
   font-size: 30px;
-  padding: 15px;
   transition: all 0.3s;
-  display: flex;
 }
 
 .credits {
