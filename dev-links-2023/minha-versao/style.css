@@ -15,7 +15,6 @@ main, footer { padding: 0px 10px; }
 .icon:hover { background-color: rgba(255, 255, 255, 0.123); }
 footer { margin-bottom: 40px; }
 
-
 header {
   width: 300px;
   margin-top: 90px;
@@ -73,3 +72,6 @@ main:has(.link:hover) .link:not(:hover) {
   opacity: 0.6;
   scale: 0.98;
 }
+
+.imagem-pre-carregada { display: none; }
+input[type="checkbox"] { cursor: pointer; }
