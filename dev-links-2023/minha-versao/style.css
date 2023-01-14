@@ -1,7 +1,5 @@
 body {
-  background-image: url("images/bg-desktop.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: url(images/bg-desktop.jpg) no-repeat top center/cover;
   color: white;
   font-family: "Inter", sans-serif;
   transition: all 0.4s;
