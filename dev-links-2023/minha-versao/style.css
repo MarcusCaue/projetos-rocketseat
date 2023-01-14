@@ -2,14 +2,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
 
 * {
-  margin: 0; padding: 0; border: 0;
+  margin: 0; 
+  padding: 0; 
+  border: 0; 
+  box-sizing: border-box;
 }
 
 body {
   background: url(images/bg-desktop.jpg) no-repeat top center/cover;
   color: white;
   font-family: "Inter", sans-serif;
-  font-weight: 500;
   transition: all 0.4s;
 }
 
@@ -20,23 +22,29 @@ body {
 a {
   color: white;
 }
+
 .container {
-  max-width: 400px;
+  width: 400px;
 }
+
 .container, header, .credits {
   margin: auto;
 }
+
 div#username {
   margin: 20px 0px;
-  font-size: 16px;
-  line-height: 24px;
+  line-height: 24px;  
+  font-weight: 500;
 }
+
 main, footer {
   padding: 0px 10px;
 }
+
 .icon:hover {
   background-color: rgba(255, 255, 255, 0.123);
 }
+
 footer {
   margin-bottom: 40px;
 }

@@ -21,3 +21,10 @@ Box Model {
   - Use BASTANTE o BORDER para ver o comportamento das caixas e as suas interrelações.
 }
 
+Reset Css {
+  - "box-sizing" define a forma como será determinada o tamanho da caixa.
+    . Quando declaramos o valor "border-box", estamos dizendo que a medida do tamanho da caixa será definida a partir de suas bordas.
+    . Isso impede que o padding aumente o tamanho da caixa quando não queremos
+  
+  - Já o "content-box" define que esse tamanho será definido pelo conteúdo da caixa (o mais comum).
+}
