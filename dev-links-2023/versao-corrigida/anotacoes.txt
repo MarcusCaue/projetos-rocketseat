@@ -28,3 +28,5 @@ Reset Css {
   
   - Já o "content-box" define que esse tamanho será definido pelo conteúdo da caixa (o mais comum).
 }
+
+-> O gap trabalha o distanciamento em linha e em coluna dos flex-items.
