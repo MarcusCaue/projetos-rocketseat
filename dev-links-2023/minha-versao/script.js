@@ -16,16 +16,27 @@ function alterarTema(estilos) {
   stylesIconsHover.backgroundColor = estilos.iconsHoverBgColor
 }
 
+// Função que pega uma regra CSS específica do arquivo "style.css" dado o seu seletor
+function getRule(selector) {
+  for (let i = 0; i < rulesCss.length; i++) {
+    let rule = rulesCss.item(i)
+
+    if (rule.selectorText === selector) {
+      return rule.style
+    }
+  }
+}
+
 // Seleciona todas as regras de CSS do arquivo "style.css"
 const rulesCss = document.styleSheets[0].cssRules
-// Seleciona os estilos dos links quando estão em hover 
-const stylesLinksHover = rulesCss.item(11).style
-// Seleciona os estilos dos ícones quando estão em hover 
-const stylesIconsHover = rulesCss.item(6).style
+// Seleciona os estilos dos links quando estão em hover
+const stylesLinksHover = getRule(".link:hover")
+// Seleciona os estilos dos ícones quando estão em hover
+const stylesIconsHover = getRule(".icon:hover")
 // Seleciona os estilos das tags a
-const stylesAnchor = rulesCss.item(1).style
+const stylesAnchor = getRule("a")
 // Seleciona os estilos dos links
-const stylesLinks = rulesCss.item(10).style
+const stylesLinks = getRule(".link")
 
 // Botão que permitirá a troca de temas da página
 const switchButton = document.querySelector("#switch-button")
@@ -40,7 +51,7 @@ const darkTheme = {
   anchorColor: "white",
   linksBorder: "1px solid #ffffff80",
   linksHoverBgColor: "#0c0c0c4b",
-  iconsHoverBgColor: "#ffffff1f"
+  iconsHoverBgColor: "#ffffff1f",
 }
 // Estilos do Modo Claro
 const lightTheme = {
@@ -52,12 +63,16 @@ const lightTheme = {
   anchorColor: "black",
   linksBorder: "1px solid #00000080",
   linksHoverBgColor: "#c7a4a42e",
-  iconsHoverBgColor: "#3a3a3a3b"
+  iconsHoverBgColor: "#3a3a3a3b",
 }
 // Configurando o evento para o switchButton
 switchButton.addEventListener("click", () => {
   let btnChecked = switchButton.checked
-  
+
   // Se o botão estiver marcado, mudar para o tema claro; do contário, para o tema escuro
-  if (btnChecked) { alterarTema(lightTheme)} else { alterarTema(darkTheme) }
+  if (btnChecked) {
+    alterarTema(lightTheme)
+  } else {
+    alterarTema(darkTheme)
+  }
 })

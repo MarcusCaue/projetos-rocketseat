@@ -1,23 +1,50 @@
+/* Import da fonte Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap');
+
+* {
+  margin: 0; padding: 0; border: 0;
+}
+
 body {
   background: url(images/bg-desktop.jpg) no-repeat top center/cover;
   color: white;
   font-family: "Inter", sans-serif;
+  font-weight: 500;
   transition: all 0.4s;
 }
 
-a { color: white; }
-.container { max-width: 550px; }
-.container, header, .credits { margin: auto; }
-div#username { margin: 20px 0px; }
-main, footer { padding: 0px 10px; }
-.icon:hover { background-color: rgba(255, 255, 255, 0.123); }
-footer { margin-bottom: 40px; }
+.text-center {
+  text-align: center;
+}
+
+a {
+  color: white;
+}
+.container {
+  max-width: 400px;
+}
+.container, header, .credits {
+  margin: auto;
+}
+div#username {
+  margin: 20px 0px;
+  font-size: 16px;
+  line-height: 24px;
+}
+main, footer {
+  padding: 0px 10px;
+}
+.icon:hover {
+  background-color: rgba(255, 255, 255, 0.123);
+}
+footer {
+  margin-bottom: 40px;
+}
 
 header {
   width: 300px;
   margin-top: 90px;
   margin-bottom: 40px;
-  text-align: center;
 }
 
 img#perfil {
@@ -25,7 +52,6 @@ img#perfil {
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 100%;
 }
-
 
 .link {
   display: block;
@@ -35,7 +61,6 @@ img#perfil {
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 5px;
   text-decoration: none;
-  text-align: center;
   transition: all 0.4s;
 }
 
@@ -48,7 +73,6 @@ img#perfil {
   justify-content: space-evenly;
   width: 200px;
   margin: 50px auto;
-  text-align: center;
 }
 
 .icon {
@@ -62,7 +86,7 @@ img#perfil {
 
 .credits {
   min-width: 250px;
-  text-align: center;
+  font-weight: 400px;
 }
 
 /* Animação da seção de links - Destaca o que está sofrendo hover e aplica os estilos abaixo que "ocultam" os que não estão sofrendo hover */
@@ -71,5 +95,6 @@ main:has(.link:hover) .link:not(:hover) {
   scale: 0.98;
 }
 
-.imagem-pre-carregada { display: none; }
-input[type="checkbox"] { cursor: pointer; }
+input[type="checkbox"] {
+  cursor: pointer;
+}

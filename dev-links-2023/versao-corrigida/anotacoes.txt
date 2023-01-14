@@ -15,6 +15,9 @@ Add Background {
     - Para adicionar o size, é preciso ter o position obrigatoriamente.
 }
 
--> Nós costumamos usar <divs> e <spans> pelo fato delas NÃO TEREM ESTILOS que atrapalhem o desenvolvimento.
+Box Model {
+  - Nós costumamos usar <divs> e <spans> pelo fato delas NÃO TEREM ESTILOS que atrapalhem o desenvolvimento.
 
--> Use BASTANTE o BORDER para ver o comportamento das caixas e as suas interrelações.
+  - Use BASTANTE o BORDER para ver o comportamento das caixas e as suas interrelações.
+}
+
