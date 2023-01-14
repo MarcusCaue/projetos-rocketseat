@@ -1,0 +1,14 @@
+-> Imagens de fundo podem ser manipuladas através da propriedade background e suas variantes.
+	. Um dos comportamentos das imagens é terem um PONTO CENTRAL, como se fosse uma espécie de centro de gravidade, que auxilia no seu posicionamento na página.
+  . Esse centro possui eixos X e Y.
+  . Para manipular o posicionamento das imagens, usamos a propriedade "background-position: <eixo y> <eixo x>;"
+  . Isso serve para manipularmos QUAL PARTE queremos mostrar na nossa página.
+
+-> Valores para o "background-size":
+  . cover: cobre toda a área visível, independentemente do tamanho do elemento
+  . contain: preenche a largura do elemento somente
+
+-> Para trabalhar com todas as variantes do background, use a shorthand:
+  - "background: <color> <image> <repeat> <position>/<size>";
+  - Os valores que você não precisa pode omitir.
+  - Para adicionar o size, é preciso ter o position obrigatoriamente.
