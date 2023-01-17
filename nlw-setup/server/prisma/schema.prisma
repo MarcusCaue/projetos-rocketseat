@@ -1,0 +1,26 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// -> Aqui é onde vamos criar as nossas tabelas que serão convertidas em comandos SQL.
+// -> As migrations são como que versionamentos do nosso Banco de Dados, assim como o git é para o código
+// -> O prisma, através do comando "npx prisma studio", abre uma página para que nós possamos ver graficamente como está o nosso BD
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Criando uma entidade
+// model NomeTabela { nomeAtributo TipoDado  }
+// Sim, não se separa os campos por vírgulas
+model Habit {
+  id         String @id @default(uuid()) // uuid() -> ids únicos universais
+  title      String
+  created_at DateTime
+
+  @@map("habits") // forma pela qual a entidade será chamada
+}

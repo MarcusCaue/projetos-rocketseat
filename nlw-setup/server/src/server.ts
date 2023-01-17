@@ -21,4 +21,5 @@ app.get("/hello", () => {
 })
 
 // Criando a porta em que a aplicação vai rodar
-app.listen({ port: 2102 })
+// O .then mostra uma mensagem enquanto o server está rodando
+app.listen({ port: 2102 }).then(() => { console.log("Server running on the port 2102! ") })
