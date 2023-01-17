@@ -1,4 +1,5 @@
-// Importando as configurações do tailwind
+/* Importando as configurações do tailwind */
+/* Todas as medidas do Tailwind são múltiplos de 4 */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
