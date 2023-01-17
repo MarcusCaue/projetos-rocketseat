@@ -1,11 +1,3 @@
-// Minuto 28:54
-
-// Importando a biblioteca que usaremos para criar uma API RestFul
-import Fastify from "fastify"
-
-// Objeto que representa a aplicação
-const app = Fastify()
-
 /** Métodos HTTP: 
  *  - Get: obtenção de dados,
  *  - Post: criação de dados,
@@ -14,10 +6,22 @@ const app = Fastify()
  *  - Delete: remoção de recursos
 */
 
+// Importando a biblioteca que usaremos para criar uma API RestFul
+import Fastify from "fastify" // Aplicação 
+import { PrismaClient } from "@prisma/client" // Banco de Dados
+import cors from "@fastify/cors" // Quais aplicações podem acessar o Back-End (por padrão, nenhum pode)
+
+// Objeto que representa a aplicação
+const app = Fastify()
+// Utilização do CORS -> Como não tem nenhuma restrição, qualquer aplicação poderá usar o back-end
+app.register(cors)
+// Objeto que realiza a conexão com o BD e permite fazer qualquer manipulação
+const db = new PrismaClient()
 
 // Seção de as rotas
-app.get("/hello", () => {
-  return "Olá mundo!! Vamos construir um app back-end usando TypeScript!"
+app.get("/hello", async () => {
+  const habits = await db.habit.findMany()
+  return habits
 })
 
 // Criando a porta em que a aplicação vai rodar
