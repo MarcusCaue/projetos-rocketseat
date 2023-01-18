@@ -8,6 +8,7 @@ import dayjs from "dayjs"
 
 // Lembrar que o Fastify só trabalha com funções assíncronas
 export async function appRoutes(app : FastifyInstance) {
+  // Criação de um novo hábito
   app.post("/habits", async (request) => {
 
     const validationRequestBodyToCreateHabit = z.object({
@@ -35,5 +36,44 @@ export async function appRoutes(app : FastifyInstance) {
         }
       }
     })
+  })
+  // Verificando informações de um dia específico
+  app.get("/day", async (request) => {
+    const getDayParams = z.object({
+      date: z.coerce.date() // convertendo dados
+    })
+
+    const { date } = getDayParams.parse(request.query)
+    const parseDate = dayjs(date).startOf("day")
+    const weekDay = parseDate.get("day")
+
+    const habitsOfDay = await prisma.habit.findMany({
+      where: { 
+        created_at: {
+          lte: date
+        },
+        weekDays : {
+          some : {
+            week_day : weekDay
+          }
+        }
+      }
+    })
+
+    const day = await prisma.day.findFirst({
+      where: {
+        date: parseDate.toDate()
+      },
+      include : {
+        dayHabits: true
+      }
+
+    })
+
+    const completedHabits = day?.dayHabits.map(dayHabit => {
+      return dayHabit.habit_id
+    })
+
+    return { habitsOfDay, completedHabits }
   })
 }
