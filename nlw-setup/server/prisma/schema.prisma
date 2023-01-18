@@ -43,12 +43,13 @@ model HabitWeekDays {
   @@map("habit_week_days")
 }
 
+// Só vão ser cadastrados dias em que foi concluído pelo menos um hábito
 model Day {
   id        String     @id @default(uuid())
   date      DateTime
   dayHabits DayHabit[]
 
-  @@unique([date])
+  @@index([date])
   @@map("days")
 }
 
