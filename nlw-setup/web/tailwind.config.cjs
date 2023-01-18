@@ -6,7 +6,12 @@ module.exports = {
     "./index.html"
   ],
   theme: {
-    extend: {},
+    // Permite que você adicione novas classes tailwind
+    extend: {
+      colors: {
+        "background-page": "#09090A"
+      }
+    },
   },
   plugins: [],
 }
