@@ -1,7 +1,8 @@
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
+import { Home } from "./src/screens/Home"
+import { StatusBar } from 'react-native';
+import Loading from "./src/components/Loading"
 // Importação das Fontes Externas
 import { useFonts, Inter_400Regular, Inter_600SemiBold, Inter_700Bold, Inter_800ExtraBold } from "@expo-google-fonts/inter"
-import Loading from "./src/components/Loading"
 
 export default function App() {
   // Verifica se as fontes foram carregadas
@@ -14,29 +15,9 @@ export default function App() {
   }
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}> Minha primeira aplicação React-Native! ^^ </Text>
+    <>
+      <Home />
       <StatusBar barStyle={'light-content'} backgroundColor="transparent" translucent />
-    </View>
+    </>
   );
 }
-// Estilizações Internas do App
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#09090A',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  text : {
-    color: "white",
-    fontFamily: "Inter_800ExtraBold",
-    fontSize: 15,
-    borderColor: "white",
-    borderRadius: 10,
-    borderWidth: 2,
-    padding: 10,
-    marginVertical: 10,
-    textAlign: "center"
-  },
-});
