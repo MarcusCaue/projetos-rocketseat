@@ -1,4 +1,4 @@
-import {Habit} from "./components/Habit"
+import {HabitDay} from "./components/HabitDay"
 import Header from "./components/Header"
 import Main from "./components/Main"
 import "./styles/global.css"

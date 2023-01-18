@@ -9,7 +9,10 @@ module.exports = {
     // Permite que você adicione novas classes tailwind
     extend: {
       colors: {
-        "background-page": "#09090A"
+        "background-page": "#09090A;"
+      },
+      gridTemplateRows: {
+        7: "repeat(7, minmax(0, 1fr));"
       }
     },
   },
