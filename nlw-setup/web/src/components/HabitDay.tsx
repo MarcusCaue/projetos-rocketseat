@@ -6,6 +6,6 @@ import "../styles/global.css"
 
 export function HabitDay() {
   return (
-   <div className="bg-zinc-900 border-2 border-zinc-800 rounded-lg h-10 w-10"></div>
+   <div className="bg-zinc-900 border-2 border-zinc-800 rounded-lg h-10 w-10" />
   )
 }
