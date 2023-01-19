@@ -28,7 +28,8 @@ export function New() {
         <Text className="font-extrabold mt-6 text-white text-3xl"> Criar Novo Hábito </Text>
 
         <Text className="font-semibold mt-6 text-white text-base"> Qual é o seu comprometimento? </Text>
-        <TextInput className="h-12 pl-4 rounded-lg mt-3 bg-zinc-800 text-white focus:border-2 focus:border-violet-500"
+        <TextInput 
+        className="h-12 pl-4 rounded-lg mt-3 bg-zinc-900 text-white border-2 border-zinc-800 focus:border-violet-500 "
         placeholder="Ex: Academia, Rezar, Ler, Beber Água etc..."
         placeholderTextColor={colors.zinc[400]}/>
 
