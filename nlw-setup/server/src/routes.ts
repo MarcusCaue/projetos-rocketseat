@@ -76,4 +76,51 @@ export async function appRoutes(app : FastifyInstance) {
 
     return { habitsOfDay, completedHabits }
   })
+  // Marcação e Desmarcação de um Hábito
+  app.patch("/habits/:id/toggle", async (request) => {
+    // ":{param}" => "route param" => parâmetro de identificação
+
+    const toggleHabitParams = z.object({ id : z.string().uuid() })
+    const { id } = toggleHabitParams.parse(request.params)
+    const today = dayjs().startOf("day").toDate()
+
+    let day = await prisma.day.findUnique({
+      where: { date: today }
+    })  
+    if (!day) {
+      day = await prisma.day.create({
+        data: { date : today }
+      })
+    }
+
+    // Verificando se o usuário já tinha marcado como concluído => registro existente
+    const dayHabit = await prisma.dayHabit.findUnique({
+      where : {
+        day_id_habit_id: {
+          day_id: day.id,
+          habit_id: id
+        }
+      }
+    })
+
+    if (dayHabit) {
+      // Desmarcar
+      await prisma.dayHabit.delete({
+        where : {
+          id: dayHabit.id
+        }
+      })
+    } else {
+      // Marcar
+      // Completando hábito
+      await prisma.dayHabit.create({
+        data : {
+          day_id : day.id,
+          habit_id : id
+        }
+      })
+    }
+
+    
+  })
 }
