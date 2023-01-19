@@ -47,7 +47,7 @@ export async function appRoutes(app : FastifyInstance) {
     const parseDate = dayjs(date).startOf("day")
     const weekDay = parseDate.get("day")
 
-    const habitsOfDay = await prisma.habit.findMany({
+    const possibleHabits = await prisma.habit.findMany({
       where: { 
         created_at: {
           lte: date
@@ -74,7 +74,7 @@ export async function appRoutes(app : FastifyInstance) {
       return dayHabit.habit_id
     })
 
-    return { habitsOfDay, completedHabits }
+    return { possibleHabits, completedHabits }
   })
   // Marcação e Desmarcação de um Hábito
   app.patch("/habits/:id/toggle", async (request) => {
@@ -122,5 +122,23 @@ export async function appRoutes(app : FastifyInstance) {
     }
 
     
+  })
+  // Pegando os dados
+  app.get("/summary", async () => {
+    const summary = await prisma.$queryRaw`
+      SELECT D.id, D.date,
+        (
+          SELECT cast(count(*) as float) FROM day_habits as DH WHERE DH.day_id = D.id
+        ) as completed,
+        (
+          SELECT cast(count(*) as float) FROM habit_week_days as HWD 
+            JOIN habits as H on H.id = HWD.habit_id
+          WHERE HWD.week_day = cast(strftime('%w', D.date/1000.0, 'unixepoch') as int)
+            AND H.created_at <= D.date
+        ) as amount
+      FROM day as D
+    `
+
+    return summary
   })
 }
