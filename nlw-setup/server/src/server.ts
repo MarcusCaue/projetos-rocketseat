@@ -23,4 +23,9 @@ app.register(appRoutes)
 
 // Criando a porta em que a aplicação vai rodar
 // O .then mostra uma mensagem enquanto o server está rodando
-app.listen({ port: 2102 }).then(() => { console.log("Server running on the port 2102! ") })
+app.listen({ 
+  port: 2102,
+  host: "0.0.0.0"
+}).then(() => { 
+  console.log("Server running on the port 2102!") 
+})

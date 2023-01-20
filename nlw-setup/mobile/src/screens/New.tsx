@@ -27,14 +27,14 @@ export function New() {
         Alert.alert("Novo Hábito", "Informe o título do Hábito")
       } else if (weekDays.length === 0) {
         Alert.alert("Novo Hábito", "Escolha a periodicidade")
+      } else {
+        await api.post("/habits", { title, weekDays }) 
+
+        setTitle("")
+        setWeekDays([])
+  
+        Alert.alert("Novo Hábito", "Hábito criado com sucesso!")
       }
-
-      await api.post("/habits", { title, weekDays }) 
-
-      setTitle("")
-      setWeekDays([])
-
-      Alert.alert("Novo Hábito", "Hábito criado com sucesso!")
 
     } catch (error) {
       console.log(error)
