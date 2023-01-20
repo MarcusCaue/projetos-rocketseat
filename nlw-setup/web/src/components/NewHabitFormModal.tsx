@@ -1,6 +1,7 @@
 import * as Checkbox from "@radix-ui/react-checkbox";
 import { Check } from "phosphor-react";
 import { FormEvent, useState } from "react";
+import { api } from "../lib/axios";
 
 const diasSemana = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"]
 
@@ -8,9 +9,21 @@ export default function NewHabitFormModal() {
   const [title, setTitle] = useState("")
   const [weekDays, setWeekDays] = useState<number[]>([])
 
-  function createNewHabit(e: FormEvent) {
+  async function createNewHabit(e: FormEvent) {
     e.preventDefault()
-    console.log(title, weekDays)
+    
+    if (!title || weekDays.length === 0 ) {
+      return
+    }
+
+    await api.post('habits', {
+      title,
+      weekDays
+    })
+
+    setTitle(""); setWeekDays([])
+
+    alert("Hábito criado com sucesso!")
   }
 
   function addAndRemoveWeekDay(numberWeekDay: number) {
@@ -23,7 +36,6 @@ export default function NewHabitFormModal() {
     }
   }
 
-
   return (
     <div>
       <form onSubmit={createNewHabit} className="w-full flex flex-col mt-6">
@@ -34,6 +46,7 @@ export default function NewHabitFormModal() {
           placeholder="Ex: Academia, Ler, Estudar, Água etc... "
           className="p-4 rounded-lg mt-3 bg-zinc-800 text-white placeholder-text-zinc-400"
           onChange={e => setTitle(e.target.value)}
+          value={title}
           autoFocus
         />
 
@@ -44,7 +57,9 @@ export default function NewHabitFormModal() {
             return (
                 <Checkbox.Root 
                   className="flex items-center gap-3 group"
-                  onCheckedChange={() => addAndRemoveWeekDay(indexOnArray)}>
+                  onCheckedChange={() => addAndRemoveWeekDay(indexOnArray)}
+                  checked={weekDays.includes(indexOnArray)}
+                >
                   <div className="h-8 w-8 rounded-lg flex items-center justify-center bg-zinc-900 border-2 border-zinc-800 group-data-[state=checked]:bg-green-600 group-data-[state=checked]:border-green-600">
                     <Checkbox.Indicator>
                       <Check size={20} className="text-white" />
