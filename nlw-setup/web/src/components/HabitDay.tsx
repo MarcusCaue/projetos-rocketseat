@@ -1,6 +1,7 @@
 import "../styles/global.css"
-import * as Popover from "@radix-ui/react-popover"
 import ProgressBar from "./ProgressBar"
+import { CheckBox } from "./CheckBox"
+import * as Popover from "@radix-ui/react-popover"
 import clsx from "clsx"
 
 type HabitDayProps = {
@@ -10,6 +11,7 @@ type HabitDayProps = {
 
 export function HabitDay(props : HabitDayProps) {
   const percentual = Math.round((props.completed / props.amount) * 100)
+  const stylesSpanCheckBox = "font-semibold text-xl text-white leading-tight group-data-[state=checked]:line-through group-data-[state=checked]:text-zinc-400"
 
   return (
    <Popover.Root>
@@ -29,6 +31,13 @@ export function HabitDay(props : HabitDayProps) {
           <span className="mt-1 font-extrabold leading-tight text-3xl"> DD/MM </span>
           
           <ProgressBar progress={percentual} />
+          
+          <div className="mt-6 flex flex-col gap-3">
+            <CheckBox title="Beber 2L de Água" stylesSpan={stylesSpanCheckBox}/>              
+            <CheckBox title="Academia" stylesSpan={stylesSpanCheckBox}/>              
+            <CheckBox title="Rezar" stylesSpan={stylesSpanCheckBox}/>              
+            <CheckBox title="Programar" stylesSpan={stylesSpanCheckBox}/>              
+          </div>
 
           <Popover.Arrow height={8} width={16} className="fill-zinc-900" />
         </Popover.Content>
