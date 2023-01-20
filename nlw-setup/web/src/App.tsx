@@ -1,7 +1,7 @@
-import {HabitDay} from "./components/HabitDay"
 import Header from "./components/Header"
 import Main from "./components/Main"
 import "./styles/global.css"
+import "./lib/dayjs"
 
 export default function App() {
   return (

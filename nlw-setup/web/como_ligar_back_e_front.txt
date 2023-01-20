@@ -1,0 +1,15 @@
+-> Isso acontece por meio de CHAMDAS HTTP;
+-> É comum fazer requisições usandoa função fetch("endereço");
+-> Vamos utilizar a lib "axios"
+
+-> O React tem um comportamento "Reactivo" à modificações dos valores de estados e propriedades (sejam elas de componentes pais ou próprias do componente) -> renderiza todo o HTML novamente.
+  . Isso é horrível quando pensamos em colocar um cliente HTTP dentro de um componente. -> executa as chamadas HTTP toda vez que o componente for renderizado
+
+-> Para tentar lidar com isso, o React tem uma função que só é executada quando um conjunto de propriedades específicos são modificados. -> "Efeitos Colaterais" -> "Consequências de Mudanças"
+  . Essa função é o "useEffect(function(), props[])"
+  . Quando deixamos o props[] vazio, o useEffect() só é executado quando o componente é renderizado pela primeira vez
+
+-> Tudo que fica fora do componente não consegue ver o que está dentro.
+  . Por isso, boa parte das chamadas HTTP ficam dentro do componente;
+
+-> É preciso colocar as informações das chamadas HTTP dentro de um ESTADO.
