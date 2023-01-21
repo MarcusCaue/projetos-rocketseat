@@ -65,7 +65,7 @@ export function HabitsList(props: HabitsListProps) {
                 checked={habitsInfo!.completedHabits.includes(habit.id)}
                 disabled={isDateOnPast}
               >
-                <div className="h-8 w-8 rounded-lg flex items-center justify-center bg-zinc-900 border-2 border-zinc-800 group-data-[state=checked]:bg-green-600 group-data-[state=checked]:border-green-600">
+                <div className="h-8 w-8 rounded-lg flex items-center justify-center bg-zinc-900 border-2 border-zinc-800 group-data-[state=checked]:bg-green-600 group-data-[state=checked]:border-green-600 transition-colors">
                   <Checkbox.Indicator>
                     <Check size={20} className="text-white" />
                   </Checkbox.Indicator>
