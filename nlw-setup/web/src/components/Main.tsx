@@ -35,7 +35,7 @@ export default function Main() {
       </header>
       <main className="grid grid-rows-7 grid-flow-col gap-3">
           { 
-            datesAvaliable.map((date, indexOnArray) => {
+            summary.length > 0 && datesAvaliable.map((date, indexOnArray) => {
               const dayInSummary = summary.find(day => {
                 return dayjs(date).isSame(day.date, "day")
               })
@@ -43,7 +43,7 @@ export default function Main() {
                 <HabitDay 
                   date={date}
                   amount={dayInSummary?.amount} 
-                  completed={dayInSummary?.completed} 
+                  defaultCompleted={dayInSummary?.completed} 
                   key={indexOnArray} 
                 />
               ) 

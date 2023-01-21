@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import { api } from "../lib/axios";
 
 interface HabitsListProps {
-  date: Date
+  date: Date,
+  onCompletedChange: (completed: number) => void
 }
 
 interface HabitsInfo {
@@ -20,7 +21,6 @@ interface HabitsInfo {
 export function HabitsList(props: HabitsListProps) {
 
   const [ habitsInfo, setHabitsInfo ] = useState<HabitsInfo>()
-  
   const isDateOnPast = dayjs(props.date).endOf('day').isBefore(new Date())
 
   useEffect(() => {
@@ -37,7 +37,6 @@ export function HabitsList(props: HabitsListProps) {
     await api.patch(`/habits/${habitId}/toggle`)
     
     const habitCompleted = habitsInfo!.completedHabits.includes(habitId)
-
     let completedHabits : string[] = []
 
     if (habitCompleted) {
@@ -50,6 +49,8 @@ export function HabitsList(props: HabitsListProps) {
       possibleHabits: habitsInfo!.possibleHabits,
       completedHabits: completedHabits
     })
+
+    props.onCompletedChange(completedHabits.length)
   }
 
   return (

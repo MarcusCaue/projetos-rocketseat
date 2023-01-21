@@ -15,3 +15,5 @@
 -> É preciso colocar as informações das chamadas HTTP dentro de um ESTADO.
 
 -> Elementos dentro do Popover.Content só são renderizados quando eles são abertos.
+
+-> Componentes podem se comunicar através da pasasgem de funções como propriedades
