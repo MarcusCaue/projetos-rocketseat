@@ -1,6 +1,7 @@
 /* Import da fonte Inter */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
 
+/* Reset CSS */
 * {
   margin: 0;
   padding: 0;
@@ -34,6 +35,19 @@ div#username {
   font-weight: 500;
 }
 
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.icon {
+  display: flex;
+  padding: 15px;
+  border-radius: 100%;
+  text-decoration: none;
+  font-size: 30px;
+  transition: all 0.3s;
+}
+
 .icon:hover {
   background-color: rgba(255, 255, 255, 0.123);
 }
@@ -47,6 +61,12 @@ img#perfil {
   width: 112px;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 100%;
+}
+
+/* Animação da seção de links - Destaca o que está sofrendo hover e aplica os estilos abaixo que "ocultam" os que não estão sofrendo hover */
+main:has(.link:hover) .link:not(:hover) {
+  opacity: 0.6;
+  scale: 0.98;
 }
 
 .link {
@@ -71,25 +91,6 @@ img#perfil {
   margin: 50px auto;
 }
 
-.icon {
-  display: flex;
-  padding: 15px;
-  border-radius: 100%;
-  text-decoration: none;
-  font-size: 30px;
-  transition: all 0.3s;
-}
-
 .credits {
   font-weight: 400;
-}
-
-/* Animação da seção de links - Destaca o que está sofrendo hover e aplica os estilos abaixo que "ocultam" os que não estão sofrendo hover */
-main:has(.link:hover) .link:not(:hover) {
-  opacity: 0.6;
-  scale: 0.98;
-}
-
-input[type="checkbox"] {
-  cursor: pointer;
 }

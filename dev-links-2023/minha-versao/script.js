@@ -1,4 +1,4 @@
-// Função que altera o tema da página entre escuro e claro
+// Função que altera o tema da página entre escuro e claro dado um objeto contendo os estilos
 function alterarTema(estilos) {
   const pageTheme = document.querySelector("#page-theme")
   const body = document.querySelector("body")
@@ -39,7 +39,7 @@ const stylesAnchor = getRule("a")
 const stylesLinks = getRule(".link")
 
 // Botão que permitirá a troca de temas da página
-const switchButton = document.querySelector("#switch-button")
+const alterThemeButton = document.querySelector("#alter-theme")
 
 // Estilos do Modo Escuro
 const darkTheme = {
@@ -65,11 +65,11 @@ const lightTheme = {
   linksHoverBgColor: "#c7a4a42e",
   iconsHoverBgColor: "#3a3a3a3b",
 }
-// Configurando o evento para o switchButton
-switchButton.addEventListener("click", () => {
-  let btnChecked = switchButton.checked
+// Configurando o evento para o botão que troca o tema da página
+alterThemeButton.addEventListener("click", () => {
+  let btnChecked = alterThemeButton.checked
 
-  // Se o botão estiver marcado, mudar para o tema claro; do contário, para o tema escuro
+  // Se o botão estiver marcado, muda para o tema claro; do contário, para o tema escuro
   if (btnChecked) {
     alterarTema(lightTheme)
   } else {
