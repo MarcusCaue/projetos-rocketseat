@@ -1,9 +1,9 @@
-import { useNavigation } from "@react-navigation/native"
-import { useState, useEffect } from "react"
+import { useNavigation, useFocusEffect } from "@react-navigation/native"
+import { useState, useEffect, useCallback } from "react"
 import { api } from "../lib/axios"
 import { View, Text, ScrollView, Alert } from "react-native"
 import { Header } from "../components/Header"
-import Loading from "../components/Loading"
+import { Loading } from "../components/Loading"
 import { SummaryHeader } from "../components/SummaryHeader"
 import { HabitDay, DAY_SIZE } from "../components/HabitDay"
 import { generateRangeDatesFromYearStart } from "../utils/generate-range-between-dates"
@@ -29,7 +29,6 @@ export function Home() {
     setLoading(true)
     try {
       const response = await api.get("/summary")
-      console.log(response.data)
       setSummary(response.data)
     } catch (error) {
       Alert.alert("Ops...", "Não foi possível carregar o sumário de hábitos.")
@@ -39,9 +38,9 @@ export function Home() {
     }
   }
 
-  useEffect(() => {
+  useFocusEffect(useCallback(() => {
     fetchData()
-  }, [])
+  }, []))
 
   if (loading) {
     return (
