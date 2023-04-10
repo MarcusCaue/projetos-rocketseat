@@ -1,11 +1,14 @@
 {
   "expo": {
-    "name": "mobile",
-    "slug": "mobile",
+    "name": "habitsday",
+    "slug": "habitsday",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "plataforms": [
+      "android"
+    ],
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -21,6 +24,7 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.nlwsetup.habitsday",
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#09090A"
@@ -28,6 +32,11 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "266bf3a2-81be-43ce-9ea6-e75de1cc0f7e"
+      }
     }
   }
 }
