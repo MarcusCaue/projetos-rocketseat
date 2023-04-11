@@ -1,0 +1,35 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Criando variáveis */
+:root {
+  /* --varName: value; */
+  --twitter-blue: #1da1f2;
+}
+
+body { 
+  color: #0f1419;
+  /* Deixa as fontes mais nítidas em navegadores baseados no Chrome  */
+  -webkit-font-smoothing: antialiased;
+}
+
+button { 
+  cursor: pointer;
+}
+
+a { 
+  /* inherit = herda do elemento pai o mesmo valor que a propriedade tem */
+  color: inherit; 
+}
+
+body, input, textarea, button {
+  /* 1rem => 16px */
+  font: 400 1rem Roboto, sans-serif;
+}
+
+/** Page: Timeline **/
+.layout {
+  margin: 0 auto;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}

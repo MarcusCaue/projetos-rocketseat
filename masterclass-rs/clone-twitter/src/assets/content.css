@@ -1,0 +1,67 @@
+.content {
+  border-left: 1px solid #ebeef0;
+  border-right: 1px solid #ebeef0;
+}
+
+.new-tweet-form {
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.new-tweet-form label {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.new-tweet-form label img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+}
+
+.new-tweet-form label textarea {
+  flex: 1; /* Ocupa todo o espaço restante disponível em tela */
+  border: 0;
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-top: 0.75rem;
+  resize: none; /* Retira o ícone que permite ao usuário modificar o tamanho de uma textarea */
+}
+
+.new-tweet-form label textarea:focus {
+  outline: none; /* Retira a linha que contorna o elemento quando está em "focus" */
+}
+
+.new-tweet-form label textarea::placeholder {
+  color: #5b7083;
+}
+
+.new-tweet-form button[type=submit] {
+  /* 
+    - Se você aplicar uma margem automática para uma direção, o elemento será jogado para a direção oposta.
+      - Para movimentá-lo VERTICALMENTE, é preciso que o container seja flex.
+        - Daí, caso queira colocar um elemento no centro (vertical e horizontal), basta aplicar um display: flex no container e um margin: auto no item.
+    - É semelhante ao funcionamento da propriedade "float".
+  */
+  margin-left: auto;
+  background: var(--twitter-blue);
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  color: #FFF;
+  font-size: 1rem;
+  font-weight: 900;
+  border: 0;
+}
+
+.new-tweet-form button[type=submit]:hover {
+  filter: brightness(0.95);
+}
+
+.separator {
+  background: #f7f9fa;
+  border-top: 1px solid #ebeef0;
+  border-bottom: 1px solid #ebeef0;
+  height: 0.75rem;
+}
