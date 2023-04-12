@@ -8,20 +8,20 @@ export default function Timeline() {
      "Ser como o rio que deflui / Silecionso dentro da noite...",
      "Para crescer, e necessário ter trabalho e oração!"
   ])
-
   const [new_tweet, setNewTweet] = useState("")
-
-  function createNewTweet(e: FormEvent) {
-    e.preventDefault()
-    setTweetsList([new_tweet, ...tweets_list])
-    setNewTweet("")
-  }
 
   return (
     <main className="timeline">
       <Header title="Home"/>
       
-      <form onSubmit={createNewTweet} className="new-tweet-form">
+      <form 
+        className="new-tweet-form"
+        onSubmit={(event) => {
+          event.preventDefault()
+          setTweetsList([new_tweet, ...tweets_list])
+          setNewTweet("")
+        }} 
+      >
         <label htmlFor="tweet">
           <img src="https://github.com/MarcusCaue.png" alt="Marcus Cauê" />
           <textarea 
@@ -30,7 +30,7 @@ export default function Timeline() {
             placeholder="O que está acontecendo?" 
             value={new_tweet}
             onChange={(event) => {setNewTweet(event.target.value)}}
-            />
+          />
         </label>
 
         <button type="submit"> Tweet </button>

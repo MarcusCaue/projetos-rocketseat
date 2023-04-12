@@ -1,47 +1,43 @@
 import Header from "../components/Header";
 import Tweet from "../components/Tweet";
 import "../assets/status.css"
-
-const answers = [
-  {
-    username: "Mayk Brito",
-    tag: "maykao.dev",
-    avatar: "https://github.com/maykbrito.png",
-    children: "Hm... Análise"
-  },
-  {
-    username: "Diego Fernandes",
-    tag: "diegof3g",
-    avatar: "https://github.com/diego3g.png",
-    children: "Interessante..."
-  },
-  {
-    username: "Maggie Appleton",
-    tag: "maggie.app.leton",
-    avatar: "https://github.com/MaggieAppleton.png",
-    children: "De fato, faz sentido..."
-  },
-]
+import { useState } from "react";
 
 export default function Status() {
+  const [new_answer, setNewAnswer] = useState("")
+  const [answers, setUpdateAnswersList] = useState([
+    "Hm... Análise",
+    "Interessante...",
+    "De fato, faz sentido..."
+  ])
+
   return (
     <main className="status">
       <Header title="Tweet"/>
 
-      <Tweet 
-        username="Jonas de Samos"
-        tag="jonasfilosofo" 
-        avatar="https://github.com/MarcusCaue.png"
-      >
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam officiis tempora incidunt ducimus facere, ex laboriosam corrupti mollitia magnam vel animi at, alias eos autem, ipsa nemo eum quos repellendus? </p>
+      <Tweet>
+        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam officiis tempora incidunt ducimus facere, ex laboriosam corrupti mollitia magnam vel animi at, alias eos autem, ipsa nemo eum quos repellendus? </p>
       </Tweet>
 
       <div className="separator" />
 
-      <form className="answer-tweet-form">
+      <form 
+        className="answer-tweet-form"
+        onSubmit={(event) => {
+          event.preventDefault()
+          setUpdateAnswersList([new_answer, ...answers])
+          setNewAnswer("")
+        }}
+      >
         <label htmlFor="tweet">
           <img src="https://github.com/MarcusCaue.png" alt="Marcus Cauê" />
-          <textarea name="tweet" id="tweet" placeholder="Digite a sua resposta" />
+          <textarea 
+            name="tweet" 
+            id="tweet" 
+            placeholder="Digite a sua resposta" 
+            value={new_answer}
+            onChange={(event) => setNewAnswer(event.target.value)}
+          />
         </label>
 
         <button type="submit"> Tweet </button>
@@ -49,18 +45,7 @@ export default function Status() {
     
       <div className="answers-list">
         {
-          answers.map((data, key) => {
-            return (
-              <Tweet 
-                key={key} 
-                username={data.username} 
-                tag={data.tag} 
-                avatar={data.avatar} 
-              >
-                {data.children}
-              </Tweet>
-            )
-          })
+          answers.map((data, key) => <Tweet key={key}> {data} </Tweet>)
         }
       </div>
     </main>
