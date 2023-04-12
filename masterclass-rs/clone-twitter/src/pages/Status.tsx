@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import Tweet from "../components/Tweet";
 import "../assets/status.css"
-import { useState } from "react";
+import { FormEvent, KeyboardEvent, useState } from "react";
 
 export default function Status() {
   const [new_answer, setNewAnswer] = useState("")
@@ -10,6 +10,20 @@ export default function Status() {
     "Interessante...",
     "De fato, faz sentido..."
   ])
+
+  function createNewAnswer(event: FormEvent) {
+    event.preventDefault()
+    setUpdateAnswersList([new_answer, ...answers])
+    setNewAnswer("")
+  }
+
+  function handleHotKeySubmit(event: KeyboardEvent) {
+    // Consegue perceber combinações de teclas, como control, shift, alt, command/metaKey etc.
+    if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) {
+      setUpdateAnswersList([new_answer, ...answers])
+      setNewAnswer("")
+    }
+  }
 
   return (
     <main className="status">
@@ -23,11 +37,7 @@ export default function Status() {
 
       <form 
         className="answer-tweet-form"
-        onSubmit={(event) => {
-          event.preventDefault()
-          setUpdateAnswersList([new_answer, ...answers])
-          setNewAnswer("")
-        }}
+        onSubmit={createNewAnswer}
       >
         <label htmlFor="tweet">
           <img src="https://github.com/MarcusCaue.png" alt="Marcus Cauê" />
@@ -37,6 +47,7 @@ export default function Status() {
             placeholder="Digite a sua resposta" 
             value={new_answer}
             onChange={(event) => setNewAnswer(event.target.value)}
+            onKeyDown={handleHotKeySubmit}
           />
         </label>
 
