@@ -4,20 +4,21 @@ import { Link } from "react-router-dom"
 import "../assets/tweet.css"
 
 interface TweetProps {
-  username?: string,
-  tag?: string,
-  avatar?: string,
-  children?: ReactNode
+  children: ReactNode
+  // username?: string,
+  // tag?: string,
+  // avatar?: string,
+  // children?: ReactNode
 }
 
 export default function Tweet(props : TweetProps) {
   return (
     <Link to={`/status`} className="tweet">
-      <img src={props.avatar} alt={props.username} />
+      <img src="https://github.com/MarcusCaue.png" alt="Marcus Cauê" />
       <div className="tweet-content">
         <div className="tweet-content-header">
-          <strong> {props.username} </strong>
-          <span>@{props.tag}</span>
+          <strong> Marcus Cauê </strong>
+          <span>@marcus_caue.dev</span>
         </div>
 
         {props.children} 
