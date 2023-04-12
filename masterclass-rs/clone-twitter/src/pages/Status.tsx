@@ -2,6 +2,7 @@ import Header from "../components/Header";
 import Tweet from "../components/Tweet";
 import "../assets/status.css"
 import { FormEvent, KeyboardEvent, useState } from "react";
+import { PaperPlaneRight } from "phosphor-react";
 
 export default function Status() {
   const [new_answer, setNewAnswer] = useState("")
@@ -51,7 +52,10 @@ export default function Status() {
           />
         </label>
 
-        <button type="submit"> Tweet </button>
+        <button type="submit"> 
+          <PaperPlaneRight />
+          <span> Tweet </span>
+        </button>
       </form>
     
       <div className="answers-list">

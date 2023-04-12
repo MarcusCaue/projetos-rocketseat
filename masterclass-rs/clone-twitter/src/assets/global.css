@@ -25,11 +25,3 @@ body, input, textarea, button {
   /* 1rem => 16px */
   font: 400 1rem Roboto, sans-serif;
 }
-
-/** Page: Timeline **/
-.layout {
-  margin: 0 auto;
-  max-width: 1000px;
-  display: grid;
-  grid-template-columns: 300px 1fr;
-}

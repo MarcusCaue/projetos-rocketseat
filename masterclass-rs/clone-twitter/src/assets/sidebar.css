@@ -63,3 +63,22 @@
   /* Ao invés de trocar para uma cor mais clara, nós diminuímos a sua luminosidade, deixando apenas 95% (0.95) */
   filter: brightness(0.95);
 }
+
+.sidebar .new-tweet .pencil {
+  display: none;
+}
+
+@media (max-width: 780px) {
+  .sidebar {
+    padding: 1.5rem 0.75rem;
+    align-items: center;
+  }
+
+  .main-navigation a span, .project-name, .sidebar .new-tweet span {
+    display: none;
+  }
+
+  .sidebar .new-tweet .pencil {
+    display: block;
+  }
+}

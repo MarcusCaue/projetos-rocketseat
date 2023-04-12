@@ -1,4 +1,4 @@
-import { Bell, BookmarkSimple, Envelope, Hash, House, FileText, User, DotsThreeCircle } from "phosphor-react"
+import { Bell, BookmarkSimple, Envelope, Hash, House, FileText, User, DotsThreeCircle, Pencil } from "phosphor-react"
 import { Link, NavLink } from "react-router-dom"
 import "../assets/sidebar.css"
 
@@ -15,17 +15,20 @@ export default function Sidebar() {
       </div>
 
       <nav className="main-navigation">
-        <NavLink to="/"> <House weight="fill" /> Home</NavLink>
-        <Link to=""> <Hash /> Explore</Link>
-        <Link to=""> <Bell /> Notifications</Link>
-        <Link to=""> <Envelope /> Messages</Link>
-        <Link to=""> <BookmarkSimple /> Bookmarks</Link>
-        <Link to=""> <FileText /> Lists</Link>
-        <Link to=""> <User /> Profile</Link>
-        <Link to=""> <DotsThreeCircle /> More</Link>
+        <NavLink to="/"> <House weight="fill" /> <span>Home</span> </NavLink>
+        <Link to=""> <Hash /> <span>Explore</span> </Link>
+        <Link to=""> <Bell /> <span>Notifications</span> </Link>
+        <Link to=""> <Envelope /> <span>Messages</span> </Link>
+        <Link to=""> <BookmarkSimple /> <span>Bookmarks</span> </Link>
+        <Link to=""> <FileText /> <span>Lists</span> </Link>
+        <Link to=""> <User /> <span>Profile</span> </Link>
+        <Link to=""> <DotsThreeCircle /> <span>More</span> </Link>
       </nav>
 
-      <button className="new-tweet">Tweet</button>
+      <button className="new-tweet">
+        <Pencil className="pencil" />
+        <span>Tweet</span>
+      </button>
     </aside>
   )
 }
