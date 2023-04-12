@@ -9,7 +9,10 @@ export default function Sidebar() {
 
   return (
     <aside className="sidebar">
-      <img className="logo" src={twitterLogo} alt="Logo" />
+      <div className="logo-and-image">
+        <img className="logo" src={twitterLogo} alt="Logo" /> 
+        <span className="project-name">CloneTwitter <br /> MasterClass React</span>
+      </div>
 
       <nav className="main-navigation">
         <NavLink to="/"> <House weight="fill" /> Home</NavLink>

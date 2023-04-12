@@ -5,6 +5,18 @@
   gap: 2rem;
 }
 
+.sidebar .logo-and-image {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sidebar .logo-and-image .project-name {
+  color: var(--twitter-blue);
+  font-size: 1.15rem;
+  font-weight: 900;
+}
+
 .main-navigation {
   display: flex;
   flex-direction: column;
