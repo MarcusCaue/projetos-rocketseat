@@ -27,17 +27,13 @@ export default function Timeline() {
 
   function createNewTweet(e: FormEvent) {
     e.preventDefault()
-    
-    console.log(e.currentTarget);
-
-    // setTweetsList([...tweets_list, {username: "Pedro", avatar: "", tag: "pedrinho", children: <h1> Jonas </h1>}])
-
+    setTweetsList([...tweets_list])
   }
 
   return (
     <main className="timeline">
       <Header title="Home"/>
-
+      
       <form onSubmit={createNewTweet} className="new-tweet-form">
         <label htmlFor="tweet">
           <img src="https://github.com/MarcusCaue.png" alt="Marcus Cauê" />
