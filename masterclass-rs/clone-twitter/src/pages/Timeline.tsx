@@ -1,28 +1,25 @@
-import Tweet from "../components/Tweet"
+import data from "../data/data.json"
+import {Tweet, TweetProps} from "../components/Tweet"
 import Header from "../components/Header"
 import { FormEvent, KeyboardEvent, useState } from "react"
 
 export default function Timeline() {
-  const [tweets_list, setTweetsList] = useState([
-     "Jonas de Samos não é o filósofo mais brabo da Grécia?",
-     "Ser como o rio que deflui / Silecionso dentro da noite...",
-     "Para crescer, e necessário ter trabalho e oração!"
-  ])
-  const [new_tweet, setNewTweet] = useState("")
+  const [tweets_list, setTweetsList] = useState(data)
+  const [new_tweet, setNewTweet] = useState()
 
-  function createNewTweet(event: FormEvent) {
-    event.preventDefault()
-    setTweetsList([new_tweet, ...tweets_list])
-    setNewTweet("")
-  }
+  // function createNewTweet(event: FormEvent) {
+  //   event.preventDefault()
+  //   setTweetsList([new_tweet, ...tweets_list])
+  //   setNewTweet("")
+  // }
 
-  function handleHotKeySubmit(event: KeyboardEvent) {
-    // Consegue perceber combinações de teclas, como control, shift, alt, command/metaKey etc.
-    if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) {
-      setTweetsList([new_tweet, ...tweets_list])
-      setNewTweet("")
-    }
-  }
+  // function handleHotKeySubmit(event: KeyboardEvent) {
+  //   // Consegue perceber combinações de teclas, como control, shift, alt, command/metaKey etc.
+  //   if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) {
+  //     setTweetsList([new_tweet, ...tweets_list])
+  //     setNewTweet("")
+  //   }
+  // }
 
   return (
     <main className="timeline">
@@ -30,7 +27,7 @@ export default function Timeline() {
       
       <form 
         className="new-tweet-form"
-        onSubmit={createNewTweet} 
+        // onSubmit={createNewTweet} 
       >
         <label htmlFor="tweet">
           <img src="https://github.com/MarcusCaue.png" alt="Marcus Cauê" />
@@ -38,9 +35,9 @@ export default function Timeline() {
             name="tweet" 
             id="tweet" 
             placeholder="O que está acontecendo?" 
-            value={new_tweet}
-            onChange={(event) => setNewTweet(event.target.value)}
-            onKeyDown={handleHotKeySubmit}
+            // value={new_tweet}
+            // onChange={(event) => setNewTweet(event.target.value)}
+            // onKeyDown={handleHotKeySubmit}
           />
         </label>
 
@@ -51,10 +48,10 @@ export default function Timeline() {
 
       <div className="tweets-list">
         {
-          tweets_list.map((tweet_content, key) => {
+          tweets_list.map((tweet, key) => {
             return (
-              <Tweet key={key}>
-                {tweet_content}
+              <Tweet key={key} username={tweet.username} tag={tweet.tag} avatar={tweet.avatar} comments={tweet.comments} hearts={tweet.hearts} retweets={tweet.retweets}>
+                <p> {tweet.content} </p>
               </Tweet>
             )
           })

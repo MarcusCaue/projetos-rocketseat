@@ -3,30 +3,32 @@ import { ReactNode } from "react"
 import { Link } from "react-router-dom"
 import "../assets/tweet.css"
 
-interface TweetProps {
-  children: ReactNode
-  // username?: string,
-  // tag?: string,
-  // avatar?: string,
-  // children?: ReactNode
+export interface TweetProps {
+  children: ReactNode,
+  username?: string,
+  tag?: string,
+  avatar?: string,
+  comments?: number,
+  hearts?: number,
+  retweets?: number
 }
 
-export default function Tweet(props : TweetProps) {
+export function Tweet(props : TweetProps) {
   return (
     <Link to={`/status`} className="tweet">
-      <img src="https://github.com/MarcusCaue.png" alt="Marcus Cauê" />
+      <img src={props.avatar} alt={props.username} />
       <div className="tweet-content">
         <div className="tweet-content-header">
-          <strong> Marcus Cauê </strong>
-          <span>@marcus_caue.dev</span>
+          <strong> {props.username} </strong>
+          <span> @{props.tag} </span>
         </div>
 
         {props.children} 
 
         <div className="tweet-content-footer">
-          <button> <ChatCircle /> 20 </button>
-          <button> <ArrowsClockwise /> 20 </button>
-          <button> <Heart /> 20 </button>
+          <button> <ChatCircle /> {props.comments} </button>
+          <button> <ArrowsClockwise /> {props.retweets} </button>
+          <button> <Heart /> {props.hearts} </button>
         </div>
       </div>
     </Link>

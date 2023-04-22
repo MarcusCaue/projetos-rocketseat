@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router-dom";
-import Timeline from "./pages/Timeline";
-import Status from "./pages/Status";
-import Sidebar from "./components/Sidebar";
-import App from "./App";
+import Timeline from "../pages/Timeline";
+import Status from "../pages/Status";
+import Sidebar from "../components/Sidebar";
+import App from "../App";
 
 // Cada objeto representa ua página da aplicação
 /* Estrutura:

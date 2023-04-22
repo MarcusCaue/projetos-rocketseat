@@ -1,0 +1,47 @@
+[
+  {
+    "username": "Marcus Cauê",
+    "tag": "marcuscaue.dev",
+    "avatar": "https://github.com/MarcusCaue.png",
+    "comments": 2,
+    "hearts": 0,
+    "retweets": 0,
+    "content": "Testando o consumo de dados de um JSON local"
+  },
+  {
+    "username": "Diego Fernandes",
+    "tag": "diego3g",
+    "avatar": "https://github.com/diego3g.png",
+    "comments": 100,
+    "hearts": 500,
+    "retweets": 55,
+    "content": "Faaaaala Dev, vamos subir para o próximo nível?"
+  },
+  {
+    "username": "Mayk Brito",
+    "tag": "maykbrito",
+    "avatar": "https://github.com/maykbrito.png",
+    "comments": 55,
+    "hearts": 100,
+    "retweets": 24,
+    "content": "Um abração do Maykão!"
+  },
+  {
+    "username": "Rodrigo Gonçalves",
+    "tag": "rodrigorgtic",
+    "avatar": "https://github.com/rodrigorgtic.png",
+    "comments": 455,
+    "hearts": 987,
+    "retweets": 67,
+    "content": "Você por acaso já ouviu falar de React Native?"
+  },
+  {
+    "username": "Jakeliny Graciely",
+    "tag": "jakeliny",
+    "avatar": "https://github.com/jakeliny.png",
+    "comments": 789,
+    "hearts": 500,
+    "retweets": 12,
+    "content": "Vamos para o computador e ver as configurações que teremos que fazer! :)"
+  }
+]
