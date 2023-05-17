@@ -1,7 +1,17 @@
 export default function Home() {
   return (
-    <div className="m-10 h-20 w-20 rounded bg-red-500 text-center text-2xl font-bold uppercase">
-      Opa!
-    </div>
+    <main className="grid min-h-screen grid-cols-2">
+      {/* Left */}
+      <div></div>
+      {/* Right */}
+      <div className="flex flex-col p-16">
+        <div className="flex flex-1 items-center justify-center">
+          <p className="w-[360px] text-center leading-relaxed">
+            Você ainda não registrou nenhuma memória, comece a{' '}
+            <a href="">criar uma agora</a>! :){' '}
+          </p>
+        </div>
+      </div>
+    </main>
   )
 }
