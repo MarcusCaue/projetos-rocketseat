@@ -3,11 +3,8 @@
  */
 
 import fastify from 'fastify'
-import { PrismaClient } from '@prisma/client'
-
+import { memoriesRoutes } from './routes/memories'
 const app = fastify()
-// Cliente de manipulação do banco
-const prisma = new PrismaClient()
 
 // Servidor
 app.listen({ port: 3333 }).then(() => {
@@ -15,7 +12,4 @@ app.listen({ port: 3333 }).then(() => {
 })
 
 /* Rotas */
-app.get('/users', async () => {
-  const users = await prisma.user.findMany()
-  return users
-})
+app.register(memoriesRoutes)
