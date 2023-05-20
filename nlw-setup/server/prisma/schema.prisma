@@ -1,17 +1,9 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 // -> Aqui é onde vamos criar as nossas tabelas que serão convertidas em comandos SQL.
 // -> As migrations são como que versionamentos do nosso Banco de Dados, assim como o git é para o código
 // -> O prisma, através do comando "npx prisma studio", abre uma página para que nós possamos ver graficamente como está o nosso BD
 
 generator client {
   provider = "prisma-client-js"
-}
-
-// Gera um arquivo com um diagrama visual do BD
-generator erd {
-  provider = "prisma-erd-generator"
 }
 
 datasource db {

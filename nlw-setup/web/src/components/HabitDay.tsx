@@ -29,10 +29,10 @@ export function HabitDay({ defaultCompleted = 0, amount = 0, date } : HabitDayPr
    <Popover.Root>
       <Popover.Trigger 
       className={
-        clsx("bg-zinc-900 border-2 border-zinc-800 rounded-lg h-10 w-10 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-600 focus:ring-offset-2 focus:ring-offset-background-page ",  { 
+        clsx("border-2 rounded-lg h-10 w-10 transition-colors focus:outline-none focus:ring-2 focus:ring-violet-600 focus:ring-offset-2 focus:ring-offset-background-page ",  { 
         // Permite a criação de classes condicionais
         // { classe a ser aplicada } : condição quando for true
-        "bg-zinc-900 border-2 border-zinc-800" : percentual === 0,
+        "bg-zinc-900 border-zinc-800" : percentual === 0,
         "bg-violet-200 border-violet-100": percentual > 0 && percentual < 20,
         "bg-violet-300 border-violet-200": percentual >= 20 && percentual < 40,
         "bg-violet-500 border-violet-400": percentual >= 40 && percentual < 60,
