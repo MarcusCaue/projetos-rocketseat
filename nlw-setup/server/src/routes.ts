@@ -1,6 +1,9 @@
 import { FastifyInstance } from "fastify"
+
 // Objeto que realiza a conexão com o BD e permite fazer qualquer manipulação
-import { prisma } from "./lib/prisma" 
+import { PrismaClient } from "@prisma/client"
+const prisma = new PrismaClient()
+
 // Objeto que realiza a validações e as tipagens dos atributos
 import { z } from "zod"
 // Função para manipulação de datas
@@ -133,10 +136,10 @@ export async function appRoutes(app : FastifyInstance) {
         (
           SELECT cast(count(*) as float) FROM habit_week_days as HWD 
             JOIN habits as H on H.id = HWD.habit_id
-          WHERE HWD.week_day = cast(strftime('%w', D.date/1000.0, 'unixepoch') as int)
+          WHERE HWD.week_day = cast(extract(dow from D.date) as int)
             AND H.created_at <= D.date
         ) as amount
-      FROM day as D
+      FROM day as D;
     `
 
     return summary

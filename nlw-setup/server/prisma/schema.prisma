@@ -7,13 +7,15 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider          = "postgresql"
+  url               = env("DATABASE_URL")
+  shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 // Criando uma entidade
 // model NomeTabela { nomeAtributo TipoDado  }
 // Sim, não se separa os campos por vírgulas
+
 model Habit {
   id         String          @id @default(uuid()) // uuid() -> ids únicos universais
   title      String
